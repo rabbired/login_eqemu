@@ -1,6 +1,6 @@
 FROM debian:9 AS build
 
-RUN mkdir /home/eqemu && mkdir /home/eqemu/server
+RUN mkdir /home/eqemu && mkdir /home/eqemu/server && mkdir /home/eqemu/server/logs
 
 WORKDIR /home/eqemu
 
