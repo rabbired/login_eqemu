@@ -15,7 +15,7 @@ RUN wget http://ftp.us.debian.org/debian/pool/main/libs/libsodium/libsodium-dev_
 	wget http://ftp.us.debian.org/debian/pool/main/libs/libsodium/libsodium18_1.0.11-1~bpo8+1_amd64.deb -O ./libsodium18.deb && \
 	dpkg -i ./libsodium*.deb && mv ./libsodium*.deb ./server/
 
-RUN git clone --depth 1 https://github.com/EQEmu/Server.git
+RUN git clone --depth 1 https://github.com/EQEmu/Server.git &&\
 #RUN git clone --depth 1 https://gitee.com/rabbired/EQEmuServer.git Server && \
 	mkdir /home/eqemu/Server/build
 
