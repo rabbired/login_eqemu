@@ -20,7 +20,8 @@ mkdir /home/eqemu/Server/build
 
 WORKDIR /home/eqemu/Server/build
 
-RUN cmake -DEQEMU_ENABLE_BOTS=OFF -DEQEMU_BUILD_LOGIN=ON -DEQEMU_BUILD_LUA=ON -G "Unix Makefiles" .. && make loginserver -j2
+RUN sed -i 's/memcpy(data_pointer, "EN", 2);/memcpy(data_pointer, "KR", 2);/g' /home/eqemu/Server/loginserver/server_manager.cpp && \
+cmake -DEQEMU_ENABLE_BOTS=OFF -DEQEMU_BUILD_LOGIN=ON -DEQEMU_BUILD_LUA=ON -G "Unix Makefiles" .. && make loginserver -j2
 
 RUN cp -rf /home/eqemu/Server/build/bin/* /home/eqemu/server && \
 cp -rf /home/eqemu/Server/loginserver/login_util/* /home/eqemu/server
@@ -42,6 +43,6 @@ rm -rf /var/lib/apt/lists/*
 
 EXPOSE 5998 5999
 
-COPY login.pl ./login
+COPY login.pl ./
 
 CMD ["perl","./login.pl"]
