@@ -42,6 +42,6 @@ rm -rf /var/lib/apt/lists/*
 
 EXPOSE 5998 5999
 
-COPY login.pl ./login
+COPY login.pl ./
 
 CMD ["perl","./login.pl"]
