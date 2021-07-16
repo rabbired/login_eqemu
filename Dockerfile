@@ -1,4 +1,4 @@
-FROM ubuntu:16.04 AS build
+FROM ubuntu:18.04 AS build
 
 RUN mkdir /home/eqemu && mkdir /home/eqemu/server && mkdir /home/eqemu/server/logs
 
@@ -24,7 +24,7 @@ RUN cmake -DEQEMU_ENABLE_BOTS=OFF -DEQEMU_BUILD_LOGIN=ON -DEQEMU_BUILD_LUA=ON -G
 RUN cp -rf /home/eqemu/Server/build/bin/* /home/eqemu/server && \
 cp -rf /home/eqemu/Server/loginserver/login_util/* /home/eqemu/server
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 MAINTAINER RedZ "rabbired@outlook.com"
 
